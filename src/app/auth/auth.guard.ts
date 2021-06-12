@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +32,7 @@ export class AuthGuard extends KeycloakAuthGuard {
         redirectUri: window.location.origin + state.url,
       });
     }
+
     // Get the roles required from the route.
     const requiredRoles = route.data.roles;
     console.log('AuthGuard.isAccessAllowed.requiredRoles:', requiredRoles);

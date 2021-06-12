@@ -1,46 +1,8 @@
-<mat-sidenav-container class="container" autosize>
-  <mat-sidenav #sidenav class="sidenav" mode="side" [(opened)]="showMenu">
-    <p>Auto-resizing sidenav</p>
-  </mat-sidenav>
-
-  <div class="sidenav-content">
-    <button type="button" mat-button (click)="sidenav.toggle()">
-      Toggle sidenav
-    </button>
-
-    <div class='user-profile'>
-      <button *ngIf="isLoggedIn" type="button" (click)="logout()">
-        Log out
-      </button>
-
-      <ng-container *ngIf="userProfile">
-        <h1>Keycloak Angular Example</h1>
-        <h2>User information</h2>
-        <table>
-          <tr *ngIf="userProfile.username">
-            <th scope="row">Username</th>
-            <td>{{ userProfile?.username }}</td>
-          </tr>
-          <tr *ngIf="userProfile.firstName">
-            <th scope="row">First name</th>
-            <td>{{ userProfile?.firstName }}</td>
-          </tr>
-          <tr *ngIf="userProfile.lastName">
-            <th scope="row">Last name</th>
-            <td>{{ userProfile?.lastName }}</td>
-          </tr>
-          <tr *ngIf="userProfile.email">
-            <th scope="row">E-mail</th>
-            <td>{{ userProfile?.email }}</td>
-          </tr>
-          <tr>
-            <th scope="row">E-mail verified</th>
-            <td>{{ userProfile?.emailVerified ? "Yes" : "No" }}</td>
-          </tr>
-        </table>
-      </ng-container>
-    </div>
-  </div>
-</mat-sidenav-container>
+<!-- <app-header></app-header> -->
+<!-- <div class="container">
+  <router-outlet></router-outlet>
+</div> -->
 
 <!-- <button *ngIf="!isLoggedIn" type="button" (click)="login()">Carregando...</button> -->
+
+<router-outlet><app-spinner></app-spinner></router-outlet>

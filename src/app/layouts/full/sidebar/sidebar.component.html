@@ -1,0 +1,35 @@
+<mat-nav-list appAccordion>
+  <!-- <mat-list-item
+    appAccordionLink
+    *ngFor="let menuitem of menuItems.getMenuitem()"
+    routerLinkActive="selected"
+    group="{{ menuitem.route }}"
+  >
+    <a
+      class=""
+      appAccordionToggle
+      [routerLink]="['/' + menuitem.module + '/', menuitem.route]"
+      *ngIf="menuitem.type === 'link'"
+    >
+      <mat-icon>{{ menuitem.icon }}</mat-icon>
+      <span>{{ menuitem.name }}</span>
+      <span fxFlex></span>
+    </a>
+  </mat-list-item> -->
+  <mat-list-item
+    appAccordionLink
+    *ngFor="let m of menu"
+    routerLinkActive="selected"
+    group="{{ m.route }}"
+  >
+    <a
+      class=""
+      appAccordionToggle
+      [routerLink]="['/' + m.module + '/', m.route]"
+      *ngIf="m.type === 'link'"
+    >
+      <span>{{ m.name }}</span>
+      <span fxFlex></span>
+    </a>
+  </mat-list-item>
+</mat-nav-list>

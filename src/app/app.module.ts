@@ -1,25 +1,45 @@
+// Core
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { AppRoutingModule } from './app-routing.module';
+// Root
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
+
+// Auth
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './auth/keyloak-init';
-import { ContentComponent } from './content/content.component';
+
+// Architecture
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToastrModule } from 'ngx-toastr';
+import { FullComponent } from './layouts/full/full.component';
+import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
+
+// Shared
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, ContentComponent],
+  declarations: [
+    AppComponent,
+    FullComponent,
+    SidebarComponent,
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     KeycloakAngularModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatSidenavModule,
+    FlexLayoutModule,
+    SharedModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
+    AppRoutingModule,
   ],
   providers: [
     {
